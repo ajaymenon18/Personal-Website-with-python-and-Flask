@@ -1,6 +1,9 @@
 A program that stores the book information:
 Title, Author , Year, ISBN 
-**
+
+
+
+
 User can : Functionalities
 View all the records
 Search an entry
