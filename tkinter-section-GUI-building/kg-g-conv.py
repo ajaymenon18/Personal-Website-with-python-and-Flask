@@ -12,7 +12,7 @@ def Kg_to_gram_pound_punces():
 
     #gets user value from the input box and multiplies it by 35.274
     ounce = float(e1_value.get())*35.274
-    
+
     # Empty the Text boxes if they had text from the previous use and fill them again
     t1.delete("1.0", END)
     t1.insert(END, gram)
@@ -39,7 +39,7 @@ e1.grid(row=0,column=2)
 #For displaying the text entered
 
 
-t1 = Text(window, height = 1, width = 20)
+t1 = Text(window, height = 1, width = 20)v=
 t1.grid(row = 1, column = 0)
 
 t2 = Text(window, height = 1, width = 20)

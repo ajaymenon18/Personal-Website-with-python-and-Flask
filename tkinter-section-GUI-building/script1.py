@@ -2,7 +2,7 @@ from tkinter import *
 window =Tk()
 
 def km_to_miles():
-    print(e1_value.get())
+    print(e1_value.get())  # Print() is to print the value in the command line
     miles = float(e1_value.get())*1.6
     t1.insert(END,miles)
 
