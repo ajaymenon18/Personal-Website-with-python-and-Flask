@@ -1,12 +1,14 @@
 from tkinter import *
-import backend
+from backend import Database
+
+database = Database("books.db")
 
 def get_selected_row(event):
     try:
         global selected_tuple
         index = list1.curselection()[0]
         selected_tuple = list1.get(index)
-
+# pip3 install pyinstaller and pyinstaller --onefile --windowed frontend.py will make the executable 
 # This will show the selected records in the entry bar
         e1.delete(0,END)
         e1.insert(END,selected_tuple[1])
@@ -21,7 +23,7 @@ def get_selected_row(event):
         e4.insert(END,selected_tuple[4])
 
         return(selected_tuple)
-        
+
     except IndexError:
         pass
     
@@ -30,27 +32,27 @@ def get_selected_row(event):
 
 def view_command():
     list1.delete(0,END)
-    for row in backend.view():
+    for row in database.view():
         list1.insert(END,row)   
 
 def search_command():
     list1.delete(0,END)
-    for row in backend.search(title_text.get(),author_text.get(),year_text.get(),isbb_text.get()):
+    for row in database.search(title_text.get(),author_text.get(),year_text.get(),isbb_text.get()):
         list1.insert(END,row)
 
 def entry_command():
     list1.delete(0,END)
 
-    backend.insert(title_text.get(),author_text.get(),year_text.get(),isbb_text.get())
+    database.insert(title_text.get(),author_text.get(),year_text.get(),isbb_text.get())
 
     list1.insert(END,(title_text.get(),author_text.get(),year_text.get(),isbb_text.get()))
 
 def delete_command():
-    backend.delete(selected_tuple[0])
+    database.delete(selected_tuple[0])
 
 def update_command():
     list1.delete(0,END)
-    backend.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),isbb_text.get() )
+    database.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),isbb_text.get() )
     
 
 window = Tk()
